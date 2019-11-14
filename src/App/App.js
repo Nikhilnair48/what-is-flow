@@ -1,11 +1,26 @@
 import React from 'react';
 import './App.css';
 
-class App extends React.Component {
+type TextProps = {
+  name: string
+}
+
+class Text extends React.Component<TextProps> {
   render() {
     return (
       <div>
-        Yeah. Okay.
+        <p>{this.props.name}</p>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component<{}> {
+  render() {
+    return (
+      <div>
+        <p>Yeah. Okay.</p>
+        <Text name="Tom" />
       </div>
     )
   }
