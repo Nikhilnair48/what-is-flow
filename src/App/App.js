@@ -38,10 +38,33 @@ class Text extends React.Component<TextProps, State> {
   }
 }
 
+class CustomTextInput extends React.Component<{}>{
+  
+  handleSubmit = e => {
+    alert("need me?");
+    e.preventDefault();
+    console.log(this.textInput);
+  };
+
+  textInput: ?HTMLInputElement
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={e => this.handleSubmit(e)}>
+            <input type="text" ref={textInput => (this.textInput = textInput)} />
+            <button>Submit</button>
+          </form>
+      </div>
+    )
+  }
+}
+
 class App extends React.Component<{}> {
   render() {
     return (
       <div>
+        <CustomTextInput />
         <Text name="Tom" />
       </div>
     )
